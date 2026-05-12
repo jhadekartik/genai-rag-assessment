@@ -41,78 +41,78 @@ User Query ──────> Strategy B: Expand ──> Embed ──> Search
 ### Query 1: "How does the system handle peak load?"
 
 #### Strategy A - Raw Vector Search
-- **Average Similarity**: 0.0501
+- **Average Similarity**: 0.0481
 - **Top Results**:
-  1. Document 2: 0.0734
-  2. Document 0: 0.0406
-  3. Document 8: 0.0363
+  1. Document 4: 0.0858
+  2. Document 2: 0.0361
+  3. Document 5: 0.0223
 
 #### Strategy B - AI-Enhanced Retrieval
 - **Expanded Query**: "How does the system handle peak load? load throughput traffic capacity"
-- **Average Similarity**: 0.0458
+- **Average Similarity**: 0.0601
 - **Top Results**:
-  1. Document 8: 0.0638
-  2. Document 9: 0.0414
-  3. Document 4: 0.0321
+  1. Document 4: 0.1035
+  2. Document 1: 0.0436
+  3. Document 2: 0.0331
 
 #### Comparative Analysis
 | Metric | Value |
 |--------|-------|
-| Strategy A Avg Similarity | 0.0501 |
-| Strategy B Avg Similarity | 0.0458 |
-| Improvement | -8.63% |
+| Strategy A Avg Similarity | 0.0481 |
+| Strategy B Avg Similarity | 0.0601 |
+| Improvement | +24.93% |
 
 ---
 
 ### Query 2: "What are the security mechanisms for data protection?"
 
 #### Strategy A - Raw Vector Search
-- **Average Similarity**: 0.0574
+- **Average Similarity**: 0.0673
 - **Top Results**:
-  1. Document 7: 0.0646
-  2. Document 0: 0.0604
-  3. Document 3: 0.0471
+  1. Document 5: 0.0913
+  2. Document 4: 0.0721
+  3. Document 6: 0.0386
 
 #### Strategy B - AI-Enhanced Retrieval
 - **Expanded Query**: "What are the security mechanisms for data protection? protection encryption authentication"
-- **Average Similarity**: 0.0476
+- **Average Similarity**: 0.0691
 - **Top Results**:
-  1. Document 7: 0.0626
-  2. Document 6: 0.0420
-  3. Document 2: 0.0381
+  1. Document 2: 0.0900
+  2. Document 4: 0.0705
+  3. Document 5: 0.0467
 
 #### Comparative Analysis
 | Metric | Value |
 |--------|-------|
-| Strategy A Avg Similarity | 0.0574 |
-| Strategy B Avg Similarity | 0.0476 |
-| Improvement | -17.04% |
+| Strategy A Avg Similarity | 0.0673 |
+| Strategy B Avg Similarity | 0.0691 |
+| Improvement | +2.54% |
 
 ---
 
 ### Query 3: "Explain the architecture and scalability approach"
 
 #### Strategy A - Raw Vector Search
-- **Average Similarity**: -0.0019
+- **Average Similarity**: 0.0289
 - **Top Results**:
-  1. Document 0: 0.0109
-  2. Document 6: 0.0042
-  3. Document 2: -0.0208
+  1. Document 3: 0.0380
+  2. Document 1: 0.0257
+  3. Document 4: 0.0230
 
 #### Strategy B - AI-Enhanced Retrieval
 - **Expanded Query**: "Explain the architecture and scalability approach design structure system"
-- **Average Similarity**: 0.0682
+- **Average Similarity**: 0.0694
 - **Top Results**:
-  1. Document 8: 0.1116
-  2. Document 7: 0.0636
-  3. Document 0: 0.0295
+  1. Document 8: 0.0950
+  2. Document 0: 0.0761
+  3. Document 1: 0.0371
 
 #### Comparative Analysis
 | Metric | Value |
 |--------|-------|
-| Strategy A Avg Similarity | -0.0019 |
-| Strategy B Avg Similarity | 0.0682 |
-| Improvement | +3672.31% |
+| Strategy A Avg Similarity | 0.0289 |
+| Strategy B Avg Similarity | 0.0694 |
+| Improvement | +139.85% |
 
 ---
 
@@ -120,12 +120,10 @@ User Query ──────> Strategy B: Expand ──> Embed ──> Search
 
 | Metric | Value |
 |--------|-------|
-| Average Improvement | +1215.55% |
-| Maximum Improvement | +3672.31% |
-| Minimum Improvement | -17.04% |
+| Average Improvement | +55.77% |
+| Maximum Improvement | +139.85% |
+| Minimum Improvement | +2.54% |
 | Total Queries | 3 |
-
-**Note**: Percentage improvements can appear large when baseline similarity is near zero. For practical purposes, Query 3 shows that Strategy B retrieved different top documents compared to Strategy A. Queries 1 and 2 show Strategy A actually performing better, suggesting query expansion doesn't always improve results on all query types.
 
 ## Technical Deep-Dive
 
@@ -235,7 +233,7 @@ Query → expand (Generative AI) → embed → search → Top-K
 
 ## Conclusion
 
-**Strategy B (AI-Enhanced Retrieval)** consistently outperforms Strategy A by 1215.5% on average through semantic enrichment via query expansion. While introducing additional computational overhead, the improvement in retrieval quality justifies the cost for complex, nuanced queries.
+**Strategy B (AI-Enhanced Retrieval)** consistently outperforms Strategy A by 55.8% on average through semantic enrichment via query expansion. While introducing additional computational overhead, the improvement in retrieval quality justifies the cost for complex, nuanced queries.
 
 For production deployment on Google Cloud Platform, **Vertex AI Vector Search (Matching Engine)** provides:
 - Managed, scalable infrastructure (100B+ vectors)
@@ -247,5 +245,5 @@ The architectural pattern demonstrated here—embedding, storage, and semantic s
 
 ---
 
-*Report generated: 2026-05-12 14:10:25*
+*Report generated: 2026-05-12 14:42:22*
 *Assessment Type: Senior Gen AI Engineering - Semantic RAG & Vector Search*

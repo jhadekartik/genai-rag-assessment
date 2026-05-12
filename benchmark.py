@@ -110,7 +110,7 @@ def run_semantic_rag_benchmark():
     
     embeddings = embedding_model.embed_text(documents)
     vector_store.add_documents(documents, embeddings)
-    logger.info(f"✓ Embedded {len(documents)} documents\n")
+    logger.info(f"[OK] Embedded {len(documents)} documents\n")
     
     # Benchmark queries
     benchmark_queries = [
@@ -137,9 +137,9 @@ def run_semantic_rag_benchmark():
     improvements = []
     
     for idx, query in enumerate(benchmark_queries, 1):
-        print(f"\n{'─' * 80}")
+        print(f"\n{'-' * 80}")
         print(f"Query {idx}: \"{query}\"")
-        print(f"{'─' * 80}")
+        print(f"{'-' * 80}")
         
         # Strategy A: Direct search
         query_embedding = embedding_model.embed_text(query)[0]
@@ -220,22 +220,22 @@ def run_semantic_rag_benchmark():
     print("=" * 80)
     print("""
 Similarity Metrics:
-  • Cosine Similarity: Industry standard for NLP embeddings (range: -1 to 1)
+  * Cosine Similarity: Industry standard for NLP embeddings (range: -1 to 1)
     - Independent of vector magnitude
     - Perfect for semantic similarity in text
   
-  • Euclidean Distance: Geometric distance (range: 0 to ∞)
+  * Euclidean Distance: Geometric distance (range: 0 to inf)
     - Magnitude-dependent
     - Useful for bounded vector spaces
 
 Strategy Comparison:
-  ✓ Strategy A: Fast, direct approach (good baseline)
-  ✓ Strategy B: Semantically enriched (handles complex queries)
+  [OK] Strategy A: Fast, direct approach (good baseline)
+  [OK] Strategy B: Semantically enriched (handles complex queries)
   
 Production Migration:
-  • Local: sentence-transformers + FAISS
-  • GCP: Vertex AI Embeddings + Matching Engine
-  • Scaling: From millions to billions of vectors
+  * Local: sentence-transformers + FAISS
+  * GCP: Vertex AI Embeddings + Matching Engine
+  * Scaling: From millions to billions of vectors
 """)
     
     # Save results
@@ -243,7 +243,7 @@ Production Migration:
     with open(output_file, 'w') as f:
         json.dump(results_all, f, indent=2)
     
-    print(f"\n✓ Results saved to: {output_file}")
+    print(f"\n[OK] Results saved to: {output_file}")
     
     return results_all
 
@@ -474,7 +474,7 @@ if __name__ == "__main__":
     with open(report_file, 'w', encoding='utf-8') as f:
         f.write(report)
     
-    print(f"✓ Comprehensive report saved to: {report_file}")
+    print(f"[OK] Comprehensive report saved to: {report_file}")
     
     print("\n" + "=" * 80)
     print("ASSESSMENT COMPLETE")
